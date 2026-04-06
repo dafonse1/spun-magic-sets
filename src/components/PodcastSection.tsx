@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 
 const episodes = [
-  { number: "012", title: "Late Night Frequencies", date: "Mar 2026", duration: "1:02:30" },
-  { number: "011", title: "Warehouse Echoes", date: "Feb 2026", duration: "58:45" },
-  { number: "010", title: "Sunset Sessions — Ibiza", date: "Jan 2026", duration: "1:15:20" },
-  { number: "009", title: "Underground Movements", date: "Dec 2025", duration: "55:10" },
-  { number: "008", title: "Midnight Groove", date: "Nov 2025", duration: "1:05:00" },
+  { number: "012", title: "Frequências da Madrugada", date: "Mar 2026", duration: "1:02:30" },
+  { number: "011", title: "Ecos do Armazém", date: "Fev 2026", duration: "58:45" },
+  { number: "010", title: "Sessões ao Pôr do Sol — Ibiza", date: "Jan 2026", duration: "1:15:20" },
+  { number: "009", title: "Movimentos Underground", date: "Dez 2025", duration: "55:10" },
+  { number: "008", title: "Groove da Meia-Noite", date: "Nov 2025", duration: "1:05:00" },
 ];
 
 const PodcastSection = () => {
@@ -22,7 +22,7 @@ const PodcastSection = () => {
             Dafonse Sessions
           </h2>
           <p className="text-muted-foreground text-base md:text-lg">
-            Monthly podcast — curated mixes, guest sets, and deep dives into electronic music.
+            Podcast mensal — mixes selecionadas, sets convidados e mergulhos profundos na música eletrónica.
           </p>
         </motion.div>
 
@@ -48,7 +48,6 @@ const PodcastSection = () => {
               <span className="text-xs text-muted-foreground font-heading shrink-0">
                 {ep.duration}
               </span>
-              {/* Play icon */}
               <div className="w-10 h-10 rounded-full border border-border group-hover:border-primary group-hover:bg-primary/10 flex items-center justify-center transition-all shrink-0">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" className="text-muted-foreground group-hover:text-primary transition-colors ml-0.5">
                   <path d="M2 1l10 6-10 6V1z" />

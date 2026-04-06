@@ -4,6 +4,8 @@ import MusicSection from "@/components/MusicSection";
 import PodcastSection from "@/components/PodcastSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import BottomNav from "@/components/BottomNav";
 
 const Index = () => {
   return (
@@ -14,6 +16,8 @@ const Index = () => {
       <PodcastSection />
       <ContactSection />
       <FooterSection />
+      <FloatingWhatsApp />
+      <BottomNav />
     </div>
   );
 };
