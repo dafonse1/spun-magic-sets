@@ -1,30 +1,30 @@
 import { motion } from "framer-motion";
 
 const remixes = [
-  { title: "Shadows (Dafonse Remix)", artist: "Original by Artbat", year: "2026" },
-  { title: "Lost Frequencies (Dafonse Remix)", artist: "Original by Kölsch", year: "2025" },
-  { title: "Night Drive (Dafonse Remix)", artist: "Original by Adriatique", year: "2025" },
+  { title: "Shadows (Dafonse Remix)", artist: "Original de Artbat", year: "2026" },
+  { title: "Lost Frequencies (Dafonse Remix)", artist: "Original de Kölsch", year: "2025" },
+  { title: "Night Drive (Dafonse Remix)", artist: "Original de Adriatique", year: "2025" },
 ];
 
 const originals = [
   { title: "Midnight Protocol", type: "Single", year: "2026", duration: "6:42" },
   { title: "Fractured Light", type: "EP", year: "2025", duration: "28:15" },
   { title: "Deep Signal", type: "Single", year: "2025", duration: "7:03" },
-  { title: "Concrete Dreams", type: "Album", year: "2024", duration: "52:30" },
+  { title: "Concrete Dreams", type: "Álbum", year: "2024", duration: "52:30" },
 ];
 
 const MusicSection = () => {
   return (
     <section className="py-24 px-4" id="music">
       <div className="max-w-4xl mx-auto">
-        {/* Originals */}
+        {/* Originais */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-heading font-bold text-4xl md:text-5xl mb-12 text-primary text-glow-cyan"
+          className="font-heading font-bold text-5xl md:text-7xl mb-12 text-primary text-glow-cyan"
         >
-          Originals
+          FAIXAS E<br />DJ SETS
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-20">

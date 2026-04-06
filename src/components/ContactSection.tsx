@@ -10,7 +10,7 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="font-heading font-bold text-4xl md:text-5xl mb-6 text-foreground"
         >
-          Get in Touch
+          Contacto
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 15 }}
@@ -19,7 +19,7 @@ const ContactSection = () => {
           transition={{ delay: 0.1 }}
           className="text-muted-foreground text-base md:text-lg mb-10 max-w-md mx-auto"
         >
-          For bookings, collabs, or just to say hey.
+          Para bookings, colaborações ou apenas para dizer olá.
         </motion.p>
 
         <motion.a

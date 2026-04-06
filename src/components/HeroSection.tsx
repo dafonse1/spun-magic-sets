@@ -11,9 +11,9 @@ const socials = [
 ];
 
 const actionButtons = [
-  { icon: Music, href: "#music", label: "Music" },
+  { icon: Music, href: "#music", label: "Música" },
   { icon: Play, href: "#podcast", label: "Podcast" },
-  { icon: Mail, href: "#contact", label: "Contact" },
+  { icon: Mail, href: "#contact", label: "Contacto" },
 ];
 
 const HeroSection = () => {
@@ -22,7 +22,7 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         <img
           src={heroBg}
-          alt="DJ Dafonse performing live with cyan and magenta lights"
+          alt="DJ Dafonse a atuar ao vivo com luzes ciano e magenta"
           className="w-full h-full object-cover"
           width={1920}
           height={1080}
@@ -31,7 +31,6 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
       </div>
 
-      {/* Name */}
       <div className="relative z-10 text-center px-4">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -42,7 +41,6 @@ const HeroSection = () => {
           DAFONSE
         </motion.h1>
 
-        {/* Action buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -62,7 +60,6 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Bouncing chevron */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -72,7 +69,6 @@ const HeroSection = () => {
         <ChevronDown className="w-8 h-8 text-primary/70" />
       </motion.div>
 
-      {/* Social icons at bottom */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
