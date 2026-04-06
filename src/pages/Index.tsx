@@ -4,9 +4,6 @@ import MusicSection from "@/components/MusicSection";
 import PodcastSection from "@/components/PodcastSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
-import PodcastSection from "@/components/PodcastSection";
-import ContactSection from "@/components/ContactSection";
-import FooterSection from "@/components/FooterSection";
 
 const Index = () => {
   return (
