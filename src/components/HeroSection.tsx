@@ -5,11 +5,10 @@ import { Button } from "@/components/ui/button";
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image */}
       <div className="absolute inset-0">
         <img
           src={heroBg}
-          alt="DJ performing at a nightclub with cyan and magenta lights"
+          alt="DJ Dafonse performing live with cyan and magenta lights"
           className="w-full h-full object-cover"
           width={1920}
           height={1080}
@@ -18,7 +17,6 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -26,7 +24,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6 }}
           className="text-primary font-heading text-sm tracking-[0.3em] uppercase mb-4"
         >
-          Electronic Music Artist
+          DJ / Producer
         </motion.p>
 
         <motion.h1
@@ -35,7 +33,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="font-heading font-bold text-6xl md:text-8xl lg:text-9xl leading-none mb-6 gradient-text"
         >
-          NXVIBE
+          DAFONSE
         </motion.h1>
 
         <motion.p
@@ -54,15 +52,14 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/80 font-heading tracking-wide text-base px-8">
-            Upcoming Shows
+            <a href="#events">Upcoming Shows</a>
           </Button>
           <Button size="lg" variant="outline" className="border-border text-foreground hover:bg-muted font-heading tracking-wide text-base px-8">
-            Listen Now
+            <a href="#music">Listen Now</a>
           </Button>
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
