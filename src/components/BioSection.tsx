@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const bio = {
   pt: {
@@ -17,33 +17,47 @@ const bio = {
 };
 
 const tabs = [
-  { key: "en" as const, label: "EN" },
-  { key: "pt" as const, label: "PT" },
+  { key: "pt" as const, label: "PT", flag: "🇵🇹" },
+  { key: "en" as const, label: "EN", flag: "🇬🇧" },
 ];
 
 const BioSection = () => {
   const [lang, setLang] = useState<"pt" | "en">("pt");
 
   return (
-    <section className="py-16 px-5" id="bio">
-      <div className="max-w-2xl mx-auto">
+    <section className="relative py-20 px-5 overflow-hidden" id="bio">
+      {/* Subtle background accent */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.03] blur-[120px] pointer-events-none" />
+
+      <div className="relative max-w-2xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-heading font-bold text-3xl md:text-4xl mb-10 text-foreground"
+        >
+          Sobre
+        </motion.h2>
+
         {/* Tab bar */}
-        <div className="flex border-b border-border mb-10">
+        <div className="flex mb-10 glass rounded-lg overflow-hidden">
           {tabs.map((tab) => (
             <button
               key={tab.key}
               onClick={() => setLang(tab.key)}
-              className={`relative flex-1 py-3 text-center font-heading text-base tracking-wide transition-colors ${
+              className={`relative flex-1 py-3.5 text-center font-heading text-sm tracking-wide transition-all duration-300 flex items-center justify-center gap-2 ${
                 lang === tab.key
                   ? "text-primary"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
+              <span className="text-base">{tab.flag}</span>
               {tab.label}
               {lang === tab.key && (
                 <motion.div
                   layoutId="bio-tab-underline"
-                  className="absolute bottom-0 left-0 right-0 h-[3px] bg-primary rounded-full"
+                  className="absolute bottom-0 left-0 right-0 h-[2px] bg-primary"
+                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 />
               )}
             </button>
@@ -51,22 +65,27 @@ const BioSection = () => {
         </div>
 
         {/* Bio text */}
-        <motion.div
-          key={lang}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.35 }}
-        >
-          {bio[lang].paragraphs.map((p, i) => (
-            <p
-              key={i}
-              className="text-foreground/90 text-[1.05rem] md:text-lg leading-[1.85] mb-8 last:mb-0"
-            >
-              {p}
-            </p>
-          ))}
-        </motion.div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={lang}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.3 }}
+          >
+            {bio[lang].paragraphs.map((p, i) => (
+              <p
+                key={i}
+                className="text-foreground/80 text-[1.05rem] md:text-lg leading-[1.9] mb-7 last:mb-0"
+              >
+                {p}
+              </p>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
+
+      <div className="section-divider mt-20 max-w-4xl mx-auto" />
     </section>
   );
 };

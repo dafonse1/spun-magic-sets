@@ -19,24 +19,36 @@ const actionButtons = [
 const HeroSection = () => {
   return (
     <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
+      {/* Background image */}
       <div className="absolute inset-0">
         <img
           src={heroBg}
           alt="DJ Dafonse a atuar ao vivo com luzes ciano e magenta"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-105"
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-background/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
+        <div className="absolute inset-0 bg-background/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-transparent h-1/3" />
       </div>
 
+      {/* Content */}
       <div className="relative z-10 text-center px-4">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="font-heading font-bold text-7xl md:text-9xl lg:text-[10rem] leading-none gradient-text"
+          transition={{ duration: 0.6 }}
+          className="font-heading text-sm md:text-base tracking-[0.4em] text-primary/80 uppercase mb-4"
+        >
+          DJ &middot; Produtor &middot; Artista
+        </motion.p>
+
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="font-heading font-bold text-7xl md:text-9xl lg:text-[10rem] leading-none gradient-text drop-shadow-2xl"
         >
           DAFONSE
         </motion.h1>
@@ -44,36 +56,50 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex gap-6 justify-center mt-10"
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex gap-5 justify-center mt-10"
         >
-          {actionButtons.map((btn) => (
-            <a
+          {actionButtons.map((btn, i) => (
+            <motion.a
               key={btn.label}
               href={btn.href}
               title={btn.label}
-              className="w-14 h-14 rounded-full border-2 border-primary bg-background/30 backdrop-blur-sm flex items-center justify-center hover:bg-primary/20 hover:shadow-[0_0_20px_hsl(var(--primary)/0.4)] transition-all"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 + i * 0.1 }}
+              className="group relative w-14 h-14 rounded-full border-2 border-primary/60 bg-background/20 backdrop-blur-md flex items-center justify-center hover:border-primary hover:bg-primary/20 hover:shadow-[0_0_30px_hsl(var(--primary)/0.35)] transition-all duration-300"
             >
-              <btn.icon className="w-6 h-6 text-primary" />
-            </a>
+              <btn.icon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+              <span className="absolute -bottom-7 text-[10px] font-heading text-primary/60 group-hover:text-primary transition-colors tracking-wider">
+                {btn.label}
+              </span>
+            </motion.a>
           ))}
         </motion.div>
       </div>
 
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        className="absolute bottom-28 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      >
+        <span className="text-[10px] font-heading tracking-[0.3em] text-muted-foreground uppercase">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronDown className="w-6 h-6 text-primary/50" />
+        </motion.div>
+      </motion.div>
+
+      {/* Social icons */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
-        className="absolute bottom-24 left-1/2 -translate-x-1/2 animate-bounce-slow"
-      >
-        <ChevronDown className="w-8 h-8 text-primary/70" />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-4"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3"
       >
         {socials.map((s) => (
           <a
@@ -82,18 +108,18 @@ const HeroSection = () => {
             target="_blank"
             rel="noopener noreferrer"
             title={s.name}
-            className="w-10 h-10 rounded-full border border-primary/50 bg-background/20 backdrop-blur-sm flex items-center justify-center hover:border-primary hover:bg-primary/10 transition-all group"
+            className="w-9 h-9 rounded-full border border-primary/30 bg-background/10 backdrop-blur-sm flex items-center justify-center hover:border-primary hover:bg-primary/15 transition-all duration-300 group"
           >
             <svg
-              width="16"
-              height="16"
+              width="14"
+              height="14"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               strokeWidth="1.5"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="text-foreground/70 group-hover:text-primary transition-colors"
+              className="text-foreground/50 group-hover:text-primary transition-colors"
             >
               <path d={s.icon} />
             </svg>
