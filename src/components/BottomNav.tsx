@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Video, Music, Instagram } from "lucide-react";
 
 const navItems = [
@@ -7,8 +8,27 @@ const navItems = [
 ];
 
 const BottomNav = () => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const bioSection = document.getElementById("bio");
+      if (bioSection) {
+        const rect = bioSection.getBoundingClientRect();
+        setVisible(rect.top <= 0);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed bottom-6 left-6 z-50 flex flex-col gap-3">
+    <nav
+      className={`fixed bottom-6 left-6 z-50 flex flex-col gap-3 transition-all ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+      }`}
+    >
       {navItems.map((item) => (
         <a
           key={item.label}
