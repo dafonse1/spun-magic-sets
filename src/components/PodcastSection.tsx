@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Headphones } from "lucide-react";
+import headphonesIcon from "@/assets/icons/headphones.png";
+import sessionsTitle from "@/assets/titles/dafonse-sessions.png";
 
 const episodes = [
   { number: "012", title: "Frequências da Madrugada", date: "Mar 2026", duration: "1:02:30" },
@@ -22,12 +23,10 @@ const PodcastSection = () => {
           className="mb-14"
         >
           <div className="flex items-center gap-3 mb-4">
-            <Headphones className="w-5 h-5 text-primary/60" />
+            <img src={headphonesIcon} alt="" className="w-5 h-5 opacity-60" loading="lazy" />
             <span className="font-heading text-xs tracking-[0.3em] text-primary/60 uppercase">Podcast Mensal</span>
           </div>
-          <h2 className="font-heading font-bold text-4xl md:text-6xl gradient-text mb-4">
-            Dafonse Sessions
-          </h2>
+          <img src={sessionsTitle} alt="Dafonse Sessions" className="h-12 md:h-20 w-auto mb-4" loading="lazy" />
           <p className="text-muted-foreground text-base md:text-lg max-w-lg">
             Mixes selecionadas, sets convidados e mergulhos profundos na música eletrónica.
           </p>

@@ -1,8 +1,10 @@
+import dafonseTitle from "@/assets/titles/dafonse.png";
+
 const FooterSection = () => {
   return (
     <footer className="border-t border-border/50 py-12 px-4">
       <div className="max-w-4xl mx-auto flex flex-col items-center gap-4">
-        <p className="font-heading font-bold text-2xl gradient-text">DAFONSE</p>
+        <img src={dafonseTitle} alt="DAFONSE" className="h-8 w-auto" loading="lazy" />
         <div className="flex gap-8 text-xs font-heading tracking-wider text-muted-foreground">
           <a href="#bio" className="hover:text-primary transition-colors">Sobre</a>
           <a href="#music" className="hover:text-primary transition-colors">Música</a>

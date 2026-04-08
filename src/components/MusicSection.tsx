@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
-import { Play, ExternalLink } from "lucide-react";
+import playIcon from "@/assets/icons/play.png";
+import externalLinkIcon from "@/assets/icons/external-link.png";
+import faixasTitle from "@/assets/titles/faixas-djsets.png";
+import remixesTitle from "@/assets/titles/remixes.png";
 
 const originals = [
   { title: "Midnight Protocol", type: "Single", year: "2026", duration: "6:42" },
@@ -29,14 +32,14 @@ const MusicSection = () => {
         >
           <span className="font-heading text-xs tracking-[0.3em] text-primary/60 uppercase">Discografia</span>
         </motion.div>
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-heading font-bold text-5xl md:text-7xl mb-14 text-primary text-glow-cyan"
+          className="mb-14"
         >
-          FAIXAS E<br />DJ SETS
-        </motion.h2>
+          <img src={faixasTitle} alt="FAIXAS E DJ SETS" className="h-16 md:h-24 w-auto" loading="lazy" />
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-24">
           {originals.map((track, i) => (
@@ -60,7 +63,7 @@ const MusicSection = () => {
               <div className="flex items-center justify-between">
                 <p className="text-muted-foreground text-sm">{track.duration}</p>
                 <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-100 scale-75">
-                  <Play className="w-4 h-4 text-primary ml-0.5" fill="currentColor" />
+                  <img src={playIcon} alt="Play" className="w-4 h-4 ml-0.5" loading="lazy" />
                 </div>
               </div>
             </motion.div>
@@ -76,14 +79,14 @@ const MusicSection = () => {
         >
           <span className="font-heading text-xs tracking-[0.3em] text-secondary/60 uppercase">Reworked</span>
         </motion.div>
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-heading font-bold text-4xl md:text-5xl mb-12 text-secondary text-glow-magenta"
+          className="mb-12"
         >
-          Remixes
-        </motion.h2>
+          <img src={remixesTitle} alt="Remixes" className="h-12 md:h-16 w-auto" loading="lazy" />
+        </motion.div>
 
         <div className="space-y-0">
           {remixes.map((track, i) => (
@@ -97,7 +100,7 @@ const MusicSection = () => {
             >
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full border border-border group-hover:border-secondary group-hover:bg-secondary/10 flex items-center justify-center transition-all duration-300 shrink-0">
-                  <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-secondary transition-colors" />
+                  <img src={externalLinkIcon} alt="" className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" loading="lazy" />
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-base md:text-lg text-foreground group-hover:text-secondary transition-colors">
