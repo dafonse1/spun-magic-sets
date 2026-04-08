@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import sobreTitle from "@/assets/titles/sobre.png";
 
 const bio = {
   pt: {
@@ -26,18 +27,17 @@ const BioSection = () => {
 
   return (
     <section className="relative py-20 px-5 overflow-hidden" id="bio">
-      {/* Subtle background accent */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.03] blur-[120px] pointer-events-none" />
 
       <div className="relative max-w-2xl mx-auto">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-heading font-bold text-3xl md:text-4xl mb-10 text-foreground"
+          className="mb-10"
         >
-          Sobre
-        </motion.h2>
+          <img src={sobreTitle} alt="Sobre" className="h-10 md:h-14 w-auto" loading="lazy" />
+        </motion.div>
 
         {/* Tab bar */}
         <div className="flex mb-10 glass rounded-lg overflow-hidden">

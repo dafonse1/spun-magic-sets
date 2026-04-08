@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { Video, Music, Instagram } from "lucide-react";
+import videoIcon from "@/assets/icons/video.png";
+import musicIcon from "@/assets/icons/music.png";
+import instagramIcon from "@/assets/icons/instagram.png";
 
 const navItems = [
-  { icon: Video, label: "VÍDEOS", href: "#podcast" },
-  { icon: Music, label: "DJ SETS", href: "#music" },
-  { icon: Instagram, label: "SOCIAL", href: "#contact" },
+  { icon: videoIcon, label: "VÍDEOS", href: "#podcast" },
+  { icon: musicIcon, label: "DJ SETS", href: "#music" },
+  { icon: instagramIcon, label: "SOCIAL", href: "#contact" },
 ];
 
 const BottomNav = () => {
@@ -35,7 +37,7 @@ const BottomNav = () => {
           href={item.href}
           className="flex items-center gap-3 text-primary hover:text-primary/80 transition-colors group"
         >
-          <item.icon className="w-5 h-5" />
+          <img src={item.icon} alt={item.label} className="w-5 h-5" loading="lazy" />
           <span className="font-heading font-bold text-sm tracking-wide">{item.label}</span>
         </a>
       ))}

@@ -1,19 +1,28 @@
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
-import { Music, Play, Mail, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import musicIcon from "@/assets/icons/music.png";
+import playIcon from "@/assets/icons/play.png";
+import mailIcon from "@/assets/icons/mail.png";
+import instagramIcon from "@/assets/icons/instagram.png";
+import soundcloudIcon from "@/assets/icons/soundcloud.png";
+import spotifyIcon from "@/assets/icons/spotify.png";
+import tiktokIcon from "@/assets/icons/tiktok.png";
+import youtubeIcon from "@/assets/icons/youtube.png";
+import dafonseTitle from "@/assets/titles/dafonse.png";
 
 const socials = [
-  { name: "Instagram", href: "#", icon: "M7.8 2h8.4C19 2 22 5 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C5 22 2 19 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6" },
-  { name: "SoundCloud", href: "#", icon: "M11.56 8.87V17h8.76c1.85-.13 2.68-1.27 2.68-2.5 0-1.24-.83-2.44-2.68-2.56a4.15 4.15 0 0 0-3.93-3.08c-.7 0-1.37.18-1.94.5V8.87a4.84 4.84 0 0 0-2.89 0M8.15 9.67V17M5.72 11.33V17M3.29 12.67V17M1 14.5V17" },
-  { name: "Spotify", href: "#", icon: "M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20m4.5 14.5a.62.62 0 0 1-.85.21c-2.33-1.43-5.26-1.75-8.72-.96a.62.62 0 1 1-.28-1.21c3.79-.87 7.04-.49 9.64 1.11.3.17.39.55.21.85m1.2-2.74a.78.78 0 0 1-1.07.26c-2.67-1.64-6.74-2.11-9.9-1.16a.78.78 0 1 1-.45-1.49c3.6-1.09 8.08-.56 11.16 1.32.36.22.48.7.26 1.07m.1-2.85C14.5 8.85 8.63 8.63 5.22 9.64a.93.93 0 1 1-.54-1.78c3.91-1.16 10.41-.94 14.52 1.34a.93.93 0 0 1-.39 1.71" },
-  { name: "TikTok", href: "#", icon: "M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.43 0-2.59-1.16-2.59-2.59s1.16-2.59 2.59-2.59c.28 0 .54.04.79.13v-3.13a5.72 5.72 0 0 0-.79-.06 5.72 5.72 0 0 0-5.72 5.72 5.72 5.72 0 0 0 5.72 5.72c3.16 0 5.72-2.56 5.72-5.72V9.41a7.28 7.28 0 0 0 4.28 1.38V7.7a4.28 4.28 0 0 1-3.27-1.88" },
-  { name: "YouTube", href: "#", icon: "M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29.94 29.94 0 0 0 1 12a29.94 29.94 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2A29.94 29.94 0 0 0 23 12a29.94 29.94 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z" },
+  { name: "Instagram", href: "#", icon: instagramIcon },
+  { name: "SoundCloud", href: "#", icon: soundcloudIcon },
+  { name: "Spotify", href: "#", icon: spotifyIcon },
+  { name: "TikTok", href: "#", icon: tiktokIcon },
+  { name: "YouTube", href: "#", icon: youtubeIcon },
 ];
 
 const actionButtons = [
-  { icon: Music, href: "#music", label: "Música" },
-  { icon: Play, href: "#podcast", label: "Podcast" },
-  { icon: Mail, href: "#contact", label: "Contacto" },
+  { icon: musicIcon, href: "#music", label: "Música" },
+  { icon: playIcon, href: "#podcast", label: "Podcast" },
+  { icon: mailIcon, href: "#contact", label: "Contacto" },
 ];
 
 const HeroSection = () => {
@@ -44,14 +53,17 @@ const HeroSection = () => {
           DJ &middot; Produtor &middot; Artista
         </motion.p>
 
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="font-heading font-bold text-7xl md:text-9xl lg:text-[10rem] leading-none gradient-text drop-shadow-2xl"
         >
-          DAFONSE
-        </motion.h1>
+          <img
+            src={dafonseTitle}
+            alt="DAFONSE"
+            className="h-20 md:h-32 lg:h-40 w-auto mx-auto drop-shadow-2xl"
+          />
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -69,7 +81,7 @@ const HeroSection = () => {
               transition={{ delay: 0.6 + i * 0.1 }}
               className="group relative w-14 h-14 rounded-full border-2 border-primary/60 bg-background/20 backdrop-blur-md flex items-center justify-center hover:border-primary hover:bg-primary/20 hover:shadow-[0_0_30px_hsl(var(--primary)/0.35)] transition-all duration-300"
             >
-              <btn.icon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+              <img src={btn.icon} alt={btn.label} className="w-5 h-5 group-hover:scale-110 transition-transform" loading="lazy" />
               <span className="absolute -bottom-7 text-[10px] font-heading text-primary/60 group-hover:text-primary transition-colors tracking-wider">
                 {btn.label}
               </span>
@@ -110,19 +122,7 @@ const HeroSection = () => {
             title={s.name}
             className="w-9 h-9 rounded-full border border-primary/30 bg-background/10 backdrop-blur-sm flex items-center justify-center hover:border-primary hover:bg-primary/15 transition-all duration-300 group"
           >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="text-foreground/50 group-hover:text-primary transition-colors"
-            >
-              <path d={s.icon} />
-            </svg>
+            <img src={s.icon} alt={s.name} className="w-4 h-4 opacity-50 group-hover:opacity-100 transition-opacity" loading="lazy" />
           </a>
         ))}
       </motion.div>
